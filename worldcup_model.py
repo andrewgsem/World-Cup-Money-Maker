@@ -427,19 +427,19 @@ def blend_market(preds_df, odds, my_scores=None, w_model=1/3, w_market=1/3, w_mi
 # %% [predict one day]
 import warnings; warnings.filterwarnings("ignore")
 
-target = pd.Timestamp("2026-06-13")          # <-- change each matchday
+target = pd.Timestamp("2026-06-14")          # <-- change each matchday
 
 ODDS = {
-    ("Qatar", "Switzerland"): (13.00, 6.50, 1.25),
-    ("Brazil", "Morocco"): (1.73, 3.70, 4.90),
-    ("Haiti", "Scotland"): (5.50, 4.30, 1.57),
-    ("Australia", "Turkey"): (4.90, 3.60, 1.75),
+    ("Germany", "Curaçao"): (1.05, 15.00, 30.00),
+    ("Ivory Coast", "Ecuador"): (3.25, 2.65, 2.70),
+    ("Netherlands", "Japan"): (2.10, 3.50, 3.45),
+    ("Sweden", "Tunisia"): (2.00, 3.35, 3.95),
 }
 MY_SCORES = {
-    ("Haiti", "Scotland"): (0, 4),     # your own scoreline call, per match
-    ("Brazil", "Morocco"): (2, 0),
-    ("Qatar", "Switzerland"): (0, 3),
-    ("Australia", "Turkey"): (1, 3),
+    ("Germany", "Curaçao"): (3, 0),     # your own scoreline call, per match
+    ("Ivory Coast", "Ecuador"): (2, 2),
+    ("Netherlands", "Japan"): (1, 1),
+    ("Sweden", "Tunisia"): (2, 0),
 }
 
 def recent(df, cutoff, years=18):
@@ -487,8 +487,10 @@ def record_result(home, away, home_score, away_score, date=None):
     print(f"Recorded: {home} {home_score}-{away_score} {away}   |   played={len(PLAYED):,}  future={len(FUTURE)}")
 
 # %% [record results -- run, then run the save block]
-record_result("Canada", "Bosnia and Herzegovina", 1, 1)
-record_result("United States", "Paraguay", 4, 1)
+record_result("Qatar", "Switzerland", 1, 1)
+record_result("Brazil", "Morocco", 1, 1)
+record_result("Haiti", "Scotland", 0, 1)
+record_result("Australia", "Turkey", 2, 0)
 
 
 # %% [save progress -- run after recording results]
@@ -497,3 +499,7 @@ FUTURE.to_parquet("data_cache/future_live.parquet")
 sync_actuals(PLAYED)
 print(f"Saved: {len(PLAYED):,} played, {len(FUTURE)} future remaining")
 
+
+# %%
+FUTURE[FUTURE.date == pd.Timestamp("2026-06-14")][["home_team", "away_team"]]
+# %%
