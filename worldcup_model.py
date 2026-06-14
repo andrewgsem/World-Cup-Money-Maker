@@ -437,7 +437,7 @@ ODDS = {
 }
 MY_SCORES = {
     ("Germany", "Curaçao"): (3, 0),     # your own scoreline call, per match
-    ("Ivory Coast", "Ecuador"): (2, 1),
+    ("Ivory Coast", "Ecuador"): (1, 1),
     ("Netherlands", "Japan"): (1, 1),
     ("Sweden", "Tunisia"): (2, 0),
 }
