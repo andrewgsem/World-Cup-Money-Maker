@@ -427,19 +427,19 @@ def blend_market(preds_df, odds, my_scores=None, w_model=1/3, w_market=1/3, w_mi
 # %% [predict one day]
 import warnings; warnings.filterwarnings("ignore")
 
-target = pd.Timestamp("2026-06-14")          # <-- change each matchday
+target = pd.Timestamp("2026-06-15")          # <-- change each matchday
 
 ODDS = {
-    ("Germany", "Curaçao"): (1.05, 15.00, 30.00),
-    ("Ivory Coast", "Ecuador"): (3.25, 2.65, 2.70),
-    ("Netherlands", "Japan"): (2.10, 3.50, 3.45),
-    ("Sweden", "Tunisia"): (2.00, 3.35, 3.95),
+    ("Belgium", "Egypt"): (1.63, 3.80, 5.75),
+    ("Iran", "New Zealand"): (1.90, 3.30, 4.60),
+    ("Spain", "Cape Verde"): (1.10, 10.00, 25.00),
+    ("Saudi Arabia", "Uruguay"): (8.00, 4.20, 1.45),
 }
 MY_SCORES = {
-    ("Germany", "Curaçao"): (3, 0),     # your own scoreline call, per match
-    ("Ivory Coast", "Ecuador"): (1, 1),
-    ("Netherlands", "Japan"): (1, 1),
-    ("Sweden", "Tunisia"): (2, 0),
+    ("Belgium", "Egypt"): (2, 1),     # your own scoreline call, per match
+    ("Iran", "New Zealand"): (2, 1),
+    ("Spain", "Cape Verde"): (5, 0),
+    ("Saudi Arabia", "Uruguay"): (0, 2),
 }
 
 def recent(df, cutoff, years=18):
@@ -487,10 +487,10 @@ def record_result(home, away, home_score, away_score, date=None):
     print(f"Recorded: {home} {home_score}-{away_score} {away}   |   played={len(PLAYED):,}  future={len(FUTURE)}")
 
 # %% [record results -- run, then run the save block]
-record_result("Qatar", "Switzerland", 1, 1)
-record_result("Brazil", "Morocco", 1, 1)
-record_result("Haiti", "Scotland", 0, 1)
-record_result("Australia", "Turkey", 2, 0)
+record_result("Germany", "Curaçao", 7, 1)
+record_result("Ivory Coast", "Ecuador", 1, 0)
+record_result("Netherlands", "Japan", 2, 2)
+record_result("Sweden", "Tunisia", 5, 1)
 
 
 # %% [save progress -- run after recording results]
@@ -501,5 +501,5 @@ print(f"Saved: {len(PLAYED):,} played, {len(FUTURE)} future remaining")
 
 
 # %%
-FUTURE[FUTURE.date == pd.Timestamp("2026-06-14")][["home_team", "away_team"]]
-# %%
+FUTURE[FUTURE.date == pd.Timestamp("2026-06-15")][["home_team", "away_team"]]
+
