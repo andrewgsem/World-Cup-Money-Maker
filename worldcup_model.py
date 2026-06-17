@@ -431,13 +431,13 @@ target = pd.Timestamp("2026-06-15")          # <-- change each matchday
 
 ODDS = {
     ("Belgium", "Egypt"): (1.63, 3.80, 5.75),
-    ("Iran", "New Zealand"): (1.90, 3.30, 4.60),
+    ("Iran", "New Zealand"): (40.00, 1.00, 40.00),
     ("Spain", "Cape Verde"): (1.10, 10.00, 25.00),
     ("Saudi Arabia", "Uruguay"): (8.00, 4.20, 1.45),
 }
 MY_SCORES = {
     ("Belgium", "Egypt"): (2, 1),     # your own scoreline call, per match
-    ("Iran", "New Zealand"): (2, 1),
+    ("Iran", "New Zealand"): (2, 3),
     ("Spain", "Cape Verde"): (5, 0),
     ("Saudi Arabia", "Uruguay"): (0, 2),
 }
